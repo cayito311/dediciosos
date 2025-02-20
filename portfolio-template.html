@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dediciosos - ¡Legado de Sabor!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header y Navegación */
+        header {
+            background: #FF0000;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        /* Hero Section */
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagen1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+        }
+
+        .hero-content {
+            max-width: min(800px, 90%);
+            padding: clamp(1rem, 5vw, 2rem);
+            background: rgba(255, 0, 0, 0.8);
+            border-radius: 20px;
+            border: 3px solid #FFD700;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 1rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: clamp(0.8rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+            background-color: #FFD700;
+            color: #FF0000;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            font-weight: bold;
+            border: 2px solid #FF0000;
+        }
+
+        .cta-button:hover {
+            background-color: #FF0000;
+            color: #FFD700;
+            border-color: #FFD700;
+        }
+
+        /* Products Section */
+        .products {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: clamp(1rem, 5vw, 2rem);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: clamp(2rem, 6vw, 3rem);
+            color: #FF0000;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 2px solid #FF0000;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: clamp(1rem, 4vw, 1.5rem);
+            background: #FFD700;
+        }
+
+        .product-title {
+            font-size: clamp(1.1rem, 4vw, 1.2rem);
+            margin-bottom: 0.5rem;
+            color: #FF0000;
+        }
+
+        .product-description {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: #FF0000;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #FF0000;
+            color: #FFD700;
+            padding: clamp(1.5rem, 5vw, 2rem);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: clamp(0.8rem, 3vw, 1rem);
+        }
+
+        .social-links a {
+            color: #FFD700;
+            margin: 0 0.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #FFD700;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #FF0000;
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+                gap: 1rem;
+                border-top: 2px solid #FFD700;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0;
+                display: block;
+            }
+        }
+
+        /* Tablet Adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Small Mobile Adjustments */
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DEDICIOSOS</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>¡Legado de Sabor!</h1>
+            <p>Descubre nuestros deliciosos productos artesanales</p>
+            <a href="#productos" class="cta-button">Ver Productos</a>
+        </div>
+    </section>
+
+    <section class="products" id="productos">
+        <div class="section-title">
+            <h2>Nuestros Productos</h2>
+        </div>
+        <div class="product-grid">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <img src="/api/placeholder/400/300" alt="imagen de product 1" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Producto 1</h3>
+                    <p class="product-description">Descripcion 1</p>
+                    <p class="product-price">$99.99</p>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <img src="/api/placeholder/400/300" alt=" imagem de Producto 2" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Producto 2</h3>
+                    <p class="product-description"> Descripcion 2</p>
+                    <p class="product-price">$149.99</p>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <img src="/api/placeholder/400/300" alt="imagen Producto 3" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Producto 3</h3>
+                    <p class="product-description">Descripcion 3</p>
+                    <p class="product-price">$199.99</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>Contacto: info@dediciosos.com</p>
+        <p>Teléfono: (123) 456-7890</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
